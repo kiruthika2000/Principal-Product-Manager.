@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kiruthika Venkatesan — Principal PM Tech · Ad Platform · GenAI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,800;1,9..144,300&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f8f8f6;--white:#ffffff;--ink:#0f0f0f;
+  --s1:#f1f0ec;--card:#ffffff;
+  --b1:rgba(15,15,15,.07);--b2:rgba(15,15,15,.13);
+  --muted:rgba(15,15,15,.5);--dim:rgba(15,15,15,.28);
+  --navy:#0f2340;--navy2:#1a3a6b;--navylt:#e8eef8;
+  --orange:#e8590a;--orange2:#fff4ed;--orange3:#f07030;
+  --serif:'Fraunces',Georgia,serif;
+  --sans:'Inter',sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.7;overflow-x:hidden;}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:.9rem 3rem;background:rgba(248,248,246,.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--b1);}
+.nl{font-family:var(--serif);font-size:1.05rem;font-weight:800;color:var(--ink);text-decoration:none;letter-spacing:-.01em;}
+.nl span{color:var(--orange);}
+.nr{display:flex;gap:2rem;list-style:none;}
+.nr a{font-size:.66rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;}
+.nr a:hover,.nr a.active{color:var(--navy);}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;}
+.hl{display:flex;flex-direction:column;justify-content:center;padding:9rem 4rem 6rem 5.5rem;background:var(--white);position:relative;z-index:1;}
+.hr{background:var(--navy);display:flex;flex-direction:column;justify-content:center;padding:9rem 3.5rem 6rem;position:relative;overflow:hidden;}
+.hr::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(255,255,255,.03) 59px,rgba(255,255,255,.03) 60px),repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(255,255,255,.03) 59px,rgba(255,255,255,.03) 60px);pointer-events:none;}
+.hr::after{content:'';position:absolute;bottom:-20%;right:-15%;width:450px;height:450px;border-radius:50%;background:radial-gradient(circle,rgba(232,89,10,.2) 0%,transparent 70%);pointer-events:none;}
+
+.eyebrow{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--mono);font-size:.57rem;letter-spacing:.15em;text-transform:uppercase;color:var(--orange);margin-bottom:1.75rem;opacity:0;animation:up .7s ease .1s forwards;}
+.eyebrow::before{content:'';width:18px;height:1.5px;background:var(--orange);}
+.hero-name{font-family:var(--serif);font-size:clamp(2.8rem,4.5vw,5rem);line-height:.9;font-weight:800;color:var(--ink);margin-bottom:1.4rem;opacity:0;animation:up .7s ease .25s forwards;}
+.hero-name em{font-style:italic;font-weight:300;color:var(--navy);}
+.hero-desc{font-size:.9rem;line-height:1.85;color:var(--muted);max-width:44ch;margin-bottom:2.5rem;opacity:0;animation:up .7s ease .4s forwards;}
+.hero-desc strong{color:var(--ink);font-weight:500;}
+.hero-cta{display:flex;gap:.8rem;flex-wrap:wrap;opacity:0;animation:up .7s ease .55s forwards;}
+.btn-p{display:inline-flex;align-items:center;gap:.4rem;background:var(--navy);color:#fff;padding:.82rem 1.75rem;font-family:var(--sans);font-size:.8rem;font-weight:600;letter-spacing:.02em;text-decoration:none;transition:all .22s;}
+.btn-p:hover{background:var(--navy2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(15,35,64,.22);}
+.btn-s{display:inline-flex;align-items:center;gap:.4rem;background:transparent;color:var(--ink);padding:.82rem 1.75rem;font-family:var(--sans);font-size:.8rem;font-weight:500;letter-spacing:.02em;text-decoration:none;border:1.5px solid var(--b2);transition:all .22s;}
+.btn-s:hover{border-color:var(--orange);color:var(--orange);}
+
+.mgrid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.08);margin-bottom:1.5rem;opacity:0;animation:fade 1s ease .75s forwards;}
+.mc{background:rgba(255,255,255,.06);padding:1.5rem 1.35rem;transition:background .2s;position:relative;}
+.mc:hover{background:rgba(255,255,255,.11);}
+.mc::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,var(--orange),transparent);opacity:0;transition:opacity .2s;}
+.mc:hover::before{opacity:1;}
+.mn{font-family:var(--serif);font-size:2.2rem;font-weight:800;line-height:1;margin-bottom:.25rem;color:var(--orange);}
+.ml{font-size:.6rem;color:rgba(255,255,255,.5);line-height:1.45;font-family:var(--mono);}
+
+.stack{opacity:0;animation:fade 1s ease 1s forwards;}
+.stk-l{font-family:var(--mono);font-size:.54rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:.65rem;}
+.stk-p{display:flex;flex-wrap:wrap;gap:.35rem;}
+.sp{font-family:var(--mono);font-size:.56rem;letter-spacing:.05em;text-transform:uppercase;border:1px solid rgba(255,255,255,.13);color:rgba(255,255,255,.62);padding:.22rem .52rem;transition:all .2s;}
+.sp:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.3);}
+.sp.hi{border-color:rgba(232,89,10,.45);color:rgba(240,112,48,.9);}
+
+.strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--b1);border-bottom:1px solid var(--b1);background:var(--white);}
+.si{padding:2.25rem 2rem;border-right:1px solid var(--b1);transition:background .2s;}
+.si:last-child{border-right:none;}
+.si:hover{background:var(--navylt);}
+.sn{font-family:var(--serif);font-size:2.6rem;font-weight:800;line-height:1;color:var(--navy);margin-bottom:.22rem;}
+.ss{font-size:.68rem;color:var(--muted);line-height:1.5;}
+
+section{position:relative;z-index:1;}
+.con{max-width:1120px;margin:0 auto;padding:0 3.5rem;}
+.sh{display:flex;align-items:center;gap:1.25rem;margin-bottom:3.5rem;}
+.shn{font-family:var(--mono);font-size:.56rem;color:var(--orange);letter-spacing:.14em;}
+.sht{font-family:var(--serif);font-size:2.1rem;font-weight:800;color:var(--ink);line-height:1;}
+.shr{flex:1;height:1px;background:var(--b1);margin-left:.75rem;}
+
+/* EXPERIENCE */
+.exp-sec{padding:7rem 0;background:var(--white);border-top:1px solid var(--b1);border-bottom:1px solid var(--b1);}
+.ei{display:grid;grid-template-columns:180px 1fr;gap:3.5rem;padding:2.75rem 0;border-bottom:1px solid var(--b1);opacity:0;transform:translateY(22px);transition:opacity .6s,transform .6s;}
+.ei.vis{opacity:1;transform:translateY(0);}
+.ei:last-child{border-bottom:none;}
+.eco{font-family:var(--mono);font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:.3rem;}
+.edt{font-size:.67rem;color:var(--muted);margin-bottom:.55rem;font-family:var(--mono);}
+.ebdg{display:inline-block;font-family:var(--mono);font-size:.51rem;letter-spacing:.07em;text-transform:uppercase;color:var(--navy);border:1px solid rgba(15,35,64,.2);padding:.14rem .48rem;background:var(--navylt);}
+.er{font-family:var(--serif);font-size:1.35rem;font-weight:700;line-height:1.15;color:var(--ink);margin-bottom:.8rem;}
+.ed{font-size:.82rem;color:var(--muted);line-height:1.78;margin-bottom:1.1rem;}
+.ew{display:flex;flex-wrap:wrap;gap:.4rem;}
+.wt{font-family:var(--mono);font-size:.56rem;letter-spacing:.04em;background:var(--orange2);color:var(--orange);border:1px solid rgba(232,89,10,.18);padding:.22rem .52rem;transition:all .2s;}
+.wt:hover{background:var(--orange);color:#fff;}
+
+/* CAPABILITIES */
+.cap-sec{padding:7rem 0;background:var(--s1);}
+.cap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:var(--b1);}
+.cg{background:var(--white);padding:2.25rem;transition:background .2s;position:relative;overflow:hidden;}
+.cg:hover{background:var(--orange2);}
+.cg::after{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--orange);transform:scaleY(0);transform-origin:top;transition:transform .3s;}
+.cg:hover::after{transform:scaleY(1);}
+.cg-tag{font-family:var(--mono);font-size:.52rem;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);margin-bottom:.75rem;}
+.cg-title{font-family:var(--serif);font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:.4rem;}
+.cg-desc{font-size:.75rem;color:var(--muted);line-height:1.65;}
+.cg-metric{margin-top:.9rem;padding:.45rem .72rem;background:var(--orange2);font-family:var(--mono);font-size:.57rem;color:var(--orange);letter-spacing:.04em;border-left:2px solid var(--orange);}
+
+/* PROJECTS */
+.proj-sec{padding:7rem 0;background:var(--white);border-top:1px solid var(--b1);border-bottom:1px solid var(--b1);}
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;background:var(--b1);}
+.pc{background:var(--white);padding:2.75rem;position:relative;overflow:hidden;opacity:0;transform:translateY(22px);transition:opacity .6s,transform .6s,background .2s;}
+.pc.vis{opacity:1;transform:translateY(0);}
+.pc:hover{background:var(--orange2);}
+.pc::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:linear-gradient(90deg,var(--navy),var(--orange),transparent);}
+.pnum{font-family:var(--mono);font-size:.53rem;letter-spacing:.14em;color:var(--dim);margin-bottom:1.1rem;}
+.pt{font-family:var(--serif);font-size:1.28rem;font-weight:700;line-height:1.2;color:var(--ink);margin-bottom:.55rem;}
+.ps{font-family:var(--mono);font-size:.53rem;letter-spacing:.07em;color:var(--orange);margin-bottom:1.2rem;}
+.pd{font-size:.81rem;color:var(--muted);line-height:1.78;margin-bottom:1.75rem;}
+.pr2{border-top:1px solid var(--b1);padding-top:1.4rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.rn{font-family:var(--serif);font-size:1.65rem;font-weight:800;line-height:1;margin-bottom:.2rem;color:var(--navy);}
+.rl{font-size:.6rem;color:var(--dim);line-height:1.4;font-family:var(--mono);}
+
+/* SKILLS */
+.sk-sec{padding:7rem 0;background:var(--s1);}
+.sk-grid{display:grid;grid-template-columns:1fr 2.2fr;gap:5rem;align-items:start;}
+.sk-left{position:relative;}
+.sk-quote{font-family:var(--serif);font-size:1.4rem;font-weight:700;line-height:1.42;color:var(--ink);padding-top:1.5rem;}
+.sk-quote::before{content:'';position:absolute;top:0;left:0;width:28px;height:2px;background:var(--navy);}
+.sk-quote em{font-style:italic;font-weight:300;color:var(--orange);}
+.skg{display:flex;flex-direction:column;gap:1.75rem;}
+.skgl{font-family:var(--mono);font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:.6rem;}
+.skgt{display:flex;flex-wrap:wrap;gap:.4rem;}
+.st{font-size:.76rem;padding:.3rem .74rem;background:var(--white);color:var(--muted);border:1px solid var(--b1);transition:all .2s;cursor:default;}
+.st:hover{border-color:var(--b2);color:var(--ink);}
+.st.hi{background:var(--navylt);color:var(--navy);border-color:rgba(15,35,64,.2);font-weight:500;}
+.st.hi:hover{background:var(--navy);color:#fff;}
+.st.or{background:var(--orange2);color:var(--orange);border-color:rgba(232,89,10,.2);font-weight:500;}
+.st.or:hover{background:var(--orange);color:#fff;}
+
+/* EDU */
+.edu-sec{padding:5rem 0;background:var(--white);border-top:1px solid var(--b1);}
+.edu-g{display:grid;grid-template-columns:1fr 1fr;gap:1.5px;background:var(--b1);}
+.ec{background:var(--white);padding:2.25rem;border-top:3px solid transparent;transition:all .2s;}
+.ec:hover{background:var(--navylt);border-top-color:var(--navy);}
+.ed2{font-family:var(--serif);font-size:1.08rem;font-weight:700;color:var(--ink);margin-bottom:.26rem;}
+.es{font-size:.74rem;color:var(--muted);margin-bottom:.8rem;font-family:var(--mono);}
+.er2{display:flex;gap:1.5rem;}
+.eg{font-family:var(--mono);font-size:.6rem;color:var(--navy);letter-spacing:.08em;font-weight:500;}
+.edt2{font-family:var(--mono);font-size:.6rem;color:var(--dim);letter-spacing:.06em;}
+
+/* CONTACT */
+.ct-sec{padding:8rem 0;text-align:center;background:var(--navy);position:relative;overflow:hidden;}
+.ct-sec::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(232,89,10,.14) 0%,transparent 70%);pointer-events:none;}
+.ct-ey{font-family:var(--mono);font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;gap:.75rem;position:relative;z-index:1;}
+.ct-ey::before,.ct-ey::after{content:'';display:inline-block;width:28px;height:1px;background:rgba(255,255,255,.25);}
+.ct-h{font-family:var(--serif);font-size:clamp(2.4rem,5vw,4rem);font-weight:800;color:#fff;line-height:1.05;margin-bottom:1rem;position:relative;z-index:1;}
+.ct-h em{font-style:italic;font-weight:300;color:var(--orange3);}
+.ct-sub{font-size:.82rem;color:rgba(255,255,255,.42);margin-bottom:3rem;position:relative;z-index:1;font-family:var(--mono);}
+.ct-links{display:flex;justify-content:center;gap:1.25rem;flex-wrap:wrap;position:relative;z-index:1;}
+.cl{display:inline-flex;align-items:center;gap:.4rem;font-family:var(--mono);font-size:.65rem;letter-spacing:.06em;color:rgba(255,255,255,.58);text-decoration:none;padding:.7rem 1.4rem;border:1px solid rgba(255,255,255,.13);transition:all .2s;}
+.cl:hover{color:#fff;border-color:rgba(232,89,10,.45);background:rgba(232,89,10,.12);}
+
+footer{background:#070f1c;border-top:1px solid rgba(255,255,255,.05);padding:1.35rem 3.5rem;display:flex;justify-content:space-between;align-items:center;}
+.fn{font-family:var(--serif);font-size:.84rem;color:rgba(255,255,255,.22);font-style:italic;}
+.fr{font-family:var(--mono);font-size:.52rem;letter-spacing:.08em;color:rgba(255,255,255,.18);}
+
+@keyframes up{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fade{from{opacity:0;}to{opacity:1;}}
+::-webkit-scrollbar{width:2px;}::-webkit-scrollbar-track{background:var(--bg);}::-webkit-scrollbar-thumb{background:var(--orange);}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nl">K<span>.</span>Venkatesan</a>
+  <ul class="nr">
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#capabilities">Capabilities</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hl">
+    <p class="eyebrow">Principal PM Tech · Ad Platform · GenAI · Omnichannel · Sunnyvale, CA</p>
+    <h1 class="hero-name">Kiruthika<br><em>Venkatesan</em></h1>
+    <p class="hero-desc">
+      Defining <strong>long-term vision, strategy, and roadmap for ad products</strong> — from GenAI campaign creation and Audio Ads to omnichannel marketplace infrastructure. 5+ years translating business goals into technical requirements, influencing engineering architecture, and owning feature delivery across <strong>Engineering, Science, Design, Legal, and Executive teams.</strong>
+    </p>
+    <div class="hero-cta">
+      <a href="#capabilities" class="btn-p">Ad Platform Capabilities →</a>
+      <a href="#contact" class="btn-s">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hr">
+    <div class="mgrid">
+      <div class="mc"><div class="mn">84%</div><div class="ml">Ad platform adoption · omnichannel marketplace · 6 months</div></div>
+      <div class="mc"><div class="mn">73%</div><div class="ml">GenAI campaign creation feature adoption · 4 months</div></div>
+      <div class="mc"><div class="mn">79%</div><div class="ml">MTTR improvement · ad platform observability infrastructure</div></div>
+      <div class="mc"><div class="mn">44%</div><div class="ml">Campaign creation efficiency · GenAI + audio ad product launch</div></div>
+    </div>
+    <div class="stack">
+      <div class="stk-l">Technical stack & specializations</div>
+      <div class="stk-p">
+        <span class="sp hi">GenAI Campaign Creation</span>
+        <span class="sp hi">Audio Ads</span>
+        <span class="sp hi">Omnichannel Marketplace</span>
+        <span class="sp hi">Technical Requirements</span>
+        <span class="sp hi">Engineering Architecture</span>
+        <span class="sp">QuickSight · SQL · Python</span>
+        <span class="sp">PRD / BRD Development</span>
+        <span class="sp">Feature Delivery & Tradeoffs</span>
+        <span class="sp">Complex Systems</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="si"><div class="sn">5+</div><div class="ss">Years owning ad product roadmap — vision through seamless launch and scaling</div></div>
+  <div class="si"><div class="sn">4</div><div class="ss">Concurrent ad product releases delivered 100% on time — feature tradeoffs managed</div></div>
+  <div class="si"><div class="sn">84%</div><div class="ss">Audio ad adoption · GenAI campaign engagement · omnichannel marketplace reach</div></div>
+  <div class="si"><div class="sn">41%</div><div class="ss">Audio ad revenue improvement · GenAI-driven campaign innovation delivery</div></div>
+</div>
+
+<section class="exp-sec" id="experience">
+  <div class="con">
+    <div class="sh"><span class="shn">01</span><h2 class="sht">Experience</h2><div class="shr"></div></div>
+
+    <div class="ei">
+      <div>
+        <div class="eco">FINRA USA</div>
+        <div class="edt">May 2025 – Sep 2025</div>
+        <div class="ebdg">PM Co-op · Tech</div>
+      </div>
+      <div>
+        <div class="er">Product Manager Co-op (Tech)<br>Ad Platform & Omnichannel Marketplace</div>
+        <p class="ed">Defined long-term vision, strategy, and roadmap for key ad products by leveraging customer feedback, data analysis, and market trends. Led GenAI campaign creation innovation — defining technical requirements for genAI infrastructure and managing feature delivery tradeoffs across performance, cost, and launch timelines. Drove cross-functional alignment across Engineering, Science, Design, Legal, and Executive teams. Built ad platform observability infrastructure driving data-backed roadmap decisions.</p>
+        <div class="ew">
+          <span class="wt">↑34% ad platform adoption</span>
+          <span class="wt">73% genAI feature adoption</span>
+          <span class="wt">↑79% MTTR improvement</span>
+          <span class="wt">↓30% deployment cycle time</span>
+          <span class="wt">↑40% roadmap accuracy</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ei">
+      <div>
+        <div class="eco">Cognizant</div>
+        <div class="edt">Jul 2021 – Aug 2024</div>
+        <div class="ebdg">Full-time · 3 yrs</div>
+      </div>
+      <div>
+        <div class="er">Senior Principal Product Manager<br>Ad Products & Technical Platform</div>
+        <p class="ed">Defined and owned long-term ad product roadmap strategy for omnichannel marketplace serving 12+ enterprise clients. Translated business goals into technical requirements, working directly with engineering leads on ad platform architecture decisions and complex system design. Led GenAI campaign creation and Audio Ad product innovation — defining product requirements, driving engineering architecture discussions on genAI infrastructure, and managing feature delivery tradeoffs. Drove seamless launch and scaling across four concurrent ad product releases, all delivered 100% on time.</p>
+        <div class="ew">
+          <span class="wt">84% ad platform adoption · 6 months</span>
+          <span class="wt">4 releases 100% on time</span>
+          <span class="wt">38% genAI campaign engagement</span>
+          <span class="wt">84% audio ad adoption</span>
+          <span class="wt">↓45% manual operational effort</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ei">
+      <div>
+        <div class="eco">Cognizant</div>
+        <div class="edt">Jun 2020 – Jul 2021</div>
+        <div class="ebdg">Full-time · 1 yr</div>
+      </div>
+      <div>
+        <div class="er">Associate Product Manager (Tech)<br>Ad Platform & Campaign Management</div>
+        <p class="ed">Owned technical requirements definition and prioritization for ad platform improvements. Partnered with engineering and data science teams to analyze campaign failure patterns using SQL and QuickSight. Influenced technical architecture decisions on ad platform infrastructure. Introduced Agile delivery frameworks and business analysis methodologies driving process improvement across campaign creation, ad serving, and core infrastructure.</p>
+        <div class="ew">
+          <span class="wt">↓29% campaign failures</span>
+          <span class="wt">↑22% advertiser reliability</span>
+          <span class="wt">↑30% delivery velocity</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cap-sec" id="capabilities">
+  <div class="con">
+    <div class="sh"><span class="shn">02</span><h2 class="sht">Ad Platform Capabilities</h2><div class="shr"></div></div>
+    <div class="cap-grid">
+
+      <div class="cg">
+        <div class="cg-tag">Strategy & Vision</div>
+        <div class="cg-title">Long-Term Ad Product Roadmap Vision</div>
+        <div class="cg-desc">Defines long-term vision, strategy, and roadmap for key ad products — leveraging customer feedback, data analysis, and market trends to prioritize features across omnichannel marketplace. Drives alignment across Engineering, Science, Design, Legal, and Executive teams through value-based prioritization.</div>
+        <div class="cg-metric">↑84% ad platform adoption · ↑40% roadmap prioritization accuracy</div>
+      </div>
+
+      <div class="cg">
+        <div class="cg-tag">Innovation</div>
+        <div class="cg-title">GenAI Campaign Creation & Audio Ads</div>
+        <div class="cg-desc">Drives innovation in GenAI for campaign creation workflows and Audio Ad product formats — defining technical requirements for genAI infrastructure, driving engineering architecture discussions on genAI systems, and managing feature delivery tradeoffs across performance, cost, and launch timelines.</div>
+        <div class="cg-metric">73% genAI adoption · 84% audio ad adoption · 44% campaign efficiency</div>
+      </div>
+
+      <div class="cg">
+        <div class="cg-tag">Technical PM</div>
+        <div class="cg-title">Technical Requirements & Engineering Influence</div>
+        <div class="cg-desc">Translates business goals into technical requirements — works directly with engineers on product enhancements, influences engineering architecture discussions, and understands complex system design to make tradeoff decisions that balance performance, scalability, and launch timelines.</div>
+        <div class="cg-metric">↓35% engineering rework · ↑35% API performance · complex systems influence</div>
+      </div>
+
+      <div class="cg">
+        <div class="cg-tag">Execution</div>
+        <div class="cg-title">Feature Delivery, Tradeoffs & Seamless Launch</div>
+        <div class="cg-desc">Owns feature delivery end-to-end — manages scope tradeoffs across competing priorities, ensures seamless launch and scaling of ad product features, and drives release governance across Engineering, Science, Design, Legal, and Executive stakeholders.</div>
+        <div class="cg-metric">4 concurrent releases 100% on time · ↓30% deployment cycle · ↓25% defects</div>
+      </div>
+
+      <div class="cg">
+        <div class="cg-tag">Cross-functional</div>
+        <div class="cg-title">Eng / Science / Design / Legal / Executive Leadership</div>
+        <div class="cg-desc">Drives cross-functional alignment across Engineering, Science, Design, Legal, and Executive teams — builds consensus on ad product strategy through data-backed proposals, manages complex stakeholder tradeoffs, and represents advertiser needs during executive prioritization.</div>
+        <div class="cg-metric">18 cross-functional stakeholder cohorts · ↑40% release governance</div>
+      </div>
+
+      <div class="cg">
+        <div class="cg-tag">Data & Analytics</div>
+        <div class="cg-title">Ad Product Analytics & Campaign Performance</div>
+        <div class="cg-desc">Builds data infrastructure driving roadmap strategy — QuickSight and SQL dashboards tracking ad campaign performance, campaign success rates, and core infrastructure reliability. Applies business analysis and process improvement methodologies to data-driven roadmap prioritization.</div>
+        <div class="cg-metric">↑79% MTTR · ↑36% roadmap accuracy · 100% infrastructure reliability</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="proj-sec" id="projects">
+  <div class="con">
+    <div class="sh"><span class="shn">03</span><h2 class="sht">Key Projects</h2><div class="shr"></div></div>
+    <div class="pg">
+      <div class="pc">
+        <div class="pnum">PROJECT 01 / 02</div>
+        <h3 class="pt">GenAI Ad Campaign Creation Platform: Roadmap, Innovation & Omnichannel Launch</h3>
+        <div class="ps">18 MONTHS · LEAD PM · GENAI · PYTHON · REST APIs · SQL · QUICKSIGHT · CI/CD · AUDIO ADS</div>
+        <p class="pd">Omnichannel marketplace ad teams lacked a GenAI innovation roadmap — campaign creation was manual, audio ad formats were unshipped, and no unified vision existed across Engineering, Science, Design, Legal, and Executive teams. Defined long-term ad product vision; translated business goals into technical requirements for genAI infrastructure; drove engineering architecture discussions on complex genAI systems; managed feature delivery tradeoffs; owned seamless launch and scaling across omnichannel marketplace.</p>
+        <div class="pr2">
+          <div><div class="rn">44%</div><div class="rl">Campaign creation efficiency improvement</div></div>
+          <div><div class="rn">84%</div><div class="rl">GenAI feature adoption achieved</div></div>
+          <div><div class="rn">84%</div><div class="rl">Audio ad adoption within 6 months</div></div>
+          <div><div class="rn">41%</div><div class="rl">Audio ad revenue improvement</div></div>
+        </div>
+      </div>
+      <div class="pc">
+        <div class="pnum">PROJECT 02 / 02</div>
+        <h3 class="pt">Ad Product Analytics & Campaign Performance Platform: Data-Driven Roadmap Strategy</h3>
+        <div class="ps">10 MONTHS · PM · SQL · QUICKSIGHT · TABLEAU · REST APIs · PYTHON · METABASE · BUSINESS ANALYSIS</div>
+        <p class="pd">Ad product teams lacked visibility into campaign performance and core infrastructure health — roadmap decisions were reactive and revenue opportunities were missed. Built QuickSight and SQL dashboards tracking ad campaign performance, campaign success rates, and core infrastructure reliability. Defined KPI frameworks measuring ad product ROI and feature adoption. Presented data-backed proposals driving value-based roadmap prioritization at executive planning sessions. Applied business analysis and process improvement methodologies.</p>
+        <div class="pr2">
+          <div><div class="rn">36%</div><div class="rl">Ad roadmap accuracy improvement</div></div>
+          <div><div class="rn">28%</div><div class="rl">Campaign performance improvement</div></div>
+          <div><div class="rn">33%</div><div class="rl">Advertiser retention improved</div></div>
+          <div><div class="rn">100%</div><div class="rl">Core infrastructure reliability</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sk-sec" id="skills">
+  <div class="con">
+    <div class="sh"><span class="shn">04</span><h2 class="sht">Skills & Stack</h2><div class="shr"></div></div>
+    <div class="sk-grid">
+      <div class="sk-left">
+        <p class="sk-quote">Owning ad products from <em>long-term vision</em> to seamless launch — with the technical depth to influence every engineering decision in between.</p>
+      </div>
+      <div class="skg">
+        <div>
+          <div class="skgl">Ad Product Strategy</div>
+          <div class="skgt">
+            <span class="st hi">Long-Term Roadmap Vision</span>
+            <span class="st hi">Ad Product Strategy</span>
+            <span class="st hi">Omnichannel Marketplace</span>
+            <span class="st hi">Feature Delivery & Tradeoffs</span>
+            <span class="st hi">Seamless Launch & Scaling</span>
+            <span class="st">Core Infrastructure</span>
+            <span class="st">Value-Based Prioritization</span>
+          </div>
+        </div>
+        <div>
+          <div class="skgl">GenAI & Innovation</div>
+          <div class="skgt">
+            <span class="st or">GenAI Campaign Creation</span>
+            <span class="st or">Audio Ads</span>
+            <span class="st or">GenAI Infrastructure</span>
+            <span class="st or">Engineering Architecture Influence</span>
+            <span class="st">Complex System Design</span>
+            <span class="st">Technical Requirements</span>
+            <span class="st">PRD / BRD Development</span>
+          </div>
+        </div>
+        <div>
+          <div class="skgl">Analytics & Cross-functional</div>
+          <div class="skgt">
+            <span class="st hi">QuickSight</span>
+            <span class="st hi">SQL</span>
+            <span class="st hi">Python</span>
+            <span class="st hi">Business Analysis</span>
+            <span class="st hi">Process Improvement</span>
+            <span class="st">Tableau · Metabase</span>
+            <span class="st">Agile / SAFe</span>
+            <span class="st">Project Management Methodologies</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="edu-sec">
+  <div class="con">
+    <div class="sh"><span class="shn">05</span><h2 class="sht">Education</h2><div class="shr"></div></div>
+    <div class="edu-g">
+      <div class="ec">
+        <div class="ed2">Master of Science — Information Technology</div>
+        <div class="es">University of Denver · Currently enrolled</div>
+        <div class="er2"><span class="eg">GPA 3.97 / 4.0</span><span class="edt2">Aug 2024 – May 2026</span></div>
+      </div>
+      <div class="ec">
+        <div class="ed2">Bachelor of Engineering — Computer Science</div>
+        <div class="es">Anna University</div>
+        <div class="er2"><span class="eg">GPA 3.8 / 4.0</span><span class="edt2">Aug 2017 – May 2021</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ct-sec" id="contact">
+  <div class="con">
+    <div class="ct-ey">Open to opportunities</div>
+    <h2 class="ct-h">Building ad products that<br><em>deliver results at scale.</em></h2>
+    <p class="ct-sub">Principal PM Tech · Ad Platform · GenAI · Omnichannel Marketplace · Sunnyvale, CA</p>
+    <div class="ct-links">
+      <a href="mailto:kiruthikavenkat2704@gmail.com" class="cl">✉ &nbsp;kiruthikavenkat2704@gmail.com</a>
+      <a href="tel:+17208135590" class="cl">✆ &nbsp;(720) 813-5590</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="fn">Kiruthika Venkatesan</span>
+  <span class="fr">Principal PM Tech · Ad Platform · GenAI · Omnichannel · Portfolio 2026</span>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting)setTimeout(()=>e.target.classList.add('vis'),i*90);});
+},{threshold:.07});
+document.querySelectorAll('.ei,.pc').forEach(el=>obs.observe(el));
+const secs=document.querySelectorAll('section[id]');
+const links=document.querySelectorAll('.nr a');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  secs.forEach(s=>{if(window.scrollY>=s.offsetTop-150)cur=s.id;});
+  links.forEach(a=>{a.classList.toggle('active',a.getAttribute('href')==='#'+cur);});
+});
+</script>
+</body>
+</html>
